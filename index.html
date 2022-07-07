@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    *{
+      padding: 0;
+      margin: 0;
+      font-family: sans-serif;
+    }
+    .container{
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+    }
+    .img{
+      width: 200px;
+      height: 200px;
+      border: 1px solid black;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 8px;
+      position: relative;
+    }
+
+    .loader{
+      background-color: white;
+      border: 1px solid black;
+      width: 128px;
+      height: 128px;
+      position: absolute;
+      top: 23px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .loader{
+      opacity: 0;
+    }
+
+    .loader span{
+      width: 40px;
+      height: 40px;
+      animation: loading .5s linear infinite;
+    }
+
+    @keyframes loading {
+      0%{
+        transform: rotate(0deg);
+      }
+      100%{
+        transform: rotate(360deg);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="img">
+      <div class="loader">
+        <span><img src="loader.png" width="40" height="40" alt=""></span>
+      </div>
+      <img alt="" width="128" height="128">
+      <button id="button">Charger</button>
+    </div>
+    <div class="img">
+      <div class="loader">
+        <span><img src="loader.png" width="40" height="40" alt=""></span>
+      </div>
+      <img alt="" width="128" height="128">
+      <button>Charger</button>
+    </div>
+    <div class="img">
+      <div class="loader">
+        <span><img src="loader.png" width="40" height="40" alt=""></span>
+      </div>
+      <img alt="" width="128" height="128">
+      <button>Charger</button>
+    </div>
+    <div class="img">
+      <div class="loader">
+        <span><img src="loader.png" width="40" height="40" alt=""></span>
+      </div>
+      <img alt="" width="128" height="128">
+      <button>Charger</button>
+    </div>
+  </div>
+
+
+  <script src="script.js"></script>
+</body>
+</html>
