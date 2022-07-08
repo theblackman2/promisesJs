@@ -1,25 +1,24 @@
-const promise = () => {
-  return new Promise((resolve, reject) => {
-    fetch("https://randomuser.me/api/")
-      .then((res) => res.json())
-      .then((data) => resolve(data))
-      .catch((data) => reject("erreur"));
-  });
-};
-
 const buttons = document.querySelectorAll("button");
-buttons.forEach((button) => {
+const promise = () => {
+  return new Promise((resolve, reject)=>{
+    fetch("https://randomuser.me/api/")
+      .then((data) => data.json())
+      .then((user) => resolve(user))
+      .catch((erreur) => reject(erreur))
+  })
+}
+
+buttons.forEach((button)=>{
   button.addEventListener("click", (e) => {
-    button.parentElement.children[0].style.opacity = 1;
-    button.previousElementSibling.removeAttribute("src");
-    promise()
-      .then((data) => {
-        button.previousElementSibling.src = data.results[0].picture.large;
-        button.parentElement.children[0].style.opacity = 0;
-      })
-      .catch((error) => {
-        button.previousElementSibling.src = "erreur.png";
-        button.parentElement.children[0].style.opacity = 0;
-      });
-  });
-});
+    button.parentElement.children[0].style.opacity = 1
+    promise().then((user)=>{
+      console.log("the")
+      button.previousElementSibling.src = user.results[0].picture.large
+    }).catch((erreur)=> {
+      button.previousElementSibling.src = "erreur.png"
+    }).finally(()=>{
+      button.parentElement.children[0].style.opacity = 0
+
+    })
+  })
+})
